@@ -1,0 +1,19 @@
+{
+  "name": "multiple",
+  "version": "1.0.0",
+  "description": "a repository testing the search and result features of www.google.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "playwright test",
+    "startUi": "playwright test --ui",
+    "report":  "playwright show-report"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.5"
+  }
+}
