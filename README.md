@@ -8,6 +8,7 @@ a repository testing the search and result features of www.google.com
 
 ### - smoke
 - Test Google Rules
+- Test Math
 - Test translate
 - Test weather
 
