@@ -13,11 +13,6 @@ a repository testing the search and result features of www.google.com
 
 ## How To Run:
 
-  "scripts": {
-    "start": "playwright test",
-    "startUi": "playwright test --ui",
-    "report":  "playwright show-report"
-
 `npm run start`
 - to run scripts in cli
 
