@@ -112,7 +112,32 @@ test.describe('Google Smoke Tests', () => {
         await expect(calculator).toContainText('Calculator')
     })
 
+    test('Math % of should show calculator', async({page}) =>{
+        await pom.get.searchField(page).fill('18% of 2000');
+        await pom.get.searchButton(page).click()
+        const calculator = pom.get.calculatorHeader(page)
+        await expect(calculator).toContainText('Calculator')
+    })
   })
 
-  
+  test('translate phrase should bring up translator', async ({page}) => {
+    await pom.get.searchField(page).fill('translate kliem bil-malti')
+    await pom.get.searchButton(page).click()
+    const translator = pom.get.googleTranslate(page);
+    expect(translator).toBeVisible();
+  })
+
+  test('weather in location should bring up weather report', async ({page})=>{
+    await pom.get.searchField(page).fill('weather in malta')
+    await pom.get.searchButton(page).click()
+    const report = pom.get.weatherReport(page);
+    expect(report).toBeVisible()
+  })
+
+  test('Top 10 should bring up list of top 10',async ({page}) => {
+    await pom.get.searchField(page).fill('Top 10 comedy movies');
+    await pom.get.searchButton(page).click();
+    const recommendations = pom.get.top10movies(page);
+    expect(recommendations).toBeVisible()
+  })
 })
