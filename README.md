@@ -2,7 +2,11 @@
 a repository testing the search and result features of www.google.com
 
 ## Testplan
+
+### - sanity
 - Test search shows 1 or more results
+
+### - smoke
 - Test Google Rules
 - Test translate
 - Test weather
