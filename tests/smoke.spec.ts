@@ -63,61 +63,17 @@ test.describe('Google Smoke Tests', () => {
   })
 
   test.describe('Google Maths Tests', () => {
-    test('Math addition shows calculator',async ({page})=> {
-        await pom.get.searchField(page).fill('1+12');
-        await pom.get.searchButton(page).click()
-        const calculator = pom.get.calculatorHeader(page)
-        await expect(calculator).toContainText('Calculator')
-    })
+    const math = ['1+12', '12-1','17/3', '23*2', 'cos(16)','sin(12)','tan(13)', '10% of 2000'];
+    const description= ['addition', 'subtraction','division', 'multiplication', 'cosine', 'sine', 'tangent', 'percentage of'];
 
-    test('Math subtraction shows calculator',async ({page})=> {
-        await pom.get.searchField(page).fill('12-1');
-        await pom.get.searchButton(page).click()
-        const calculator = pom.get.calculatorHeader(page)
-        await expect(calculator).toContainText('Calculator')
-    })
-
-    test('Math division shows calculator',async ({page})=> {
-        await pom.get.searchField(page).fill('17/3');
-        await pom.get.searchButton(page).click()
-        const calculator = pom.get.calculatorHeader(page)
-        await expect(calculator).toContainText('Calculator')
-    })
-
-    test('Math multiplication shows calculator',async ({page})=> {
-        await pom.get.searchField(page).fill('23*2');
-        await pom.get.searchButton(page).click()
-        const calculator = pom.get.calculatorHeader(page)
-        await expect(calculator).toContainText('Calculator')
-    })
-
-    test('Math Sine shows calculator',async ({page})=> {
-        await pom.get.searchField(page).fill('sin(16)');
-        await pom.get.searchButton(page).click()
-        const calculator = pom.get.calculatorHeader(page)
-        await expect(calculator).toContainText('Calculator')
-    })
-
-    test('Math cosine shows calculator',async ({page})=> {
-        await pom.get.searchField(page).fill('cos(15)');
-        await pom.get.searchButton(page).click()
-        const calculator = pom.get.calculatorHeader(page)
-        await expect(calculator).toContainText('Calculator')
-    })
-
-    test('Math tangent shows calculator',async ({page})=> {
-        await pom.get.searchField(page).fill('tan(12)');
-        await pom.get.searchButton(page).click()
-        const calculator = pom.get.calculatorHeader(page)
-        await expect(calculator).toContainText('Calculator')
-    })
-
-    test('Math % of should show calculator', async({page}) =>{
-        await pom.get.searchField(page).fill('18% of 2000');
-        await pom.get.searchButton(page).click()
-        const calculator = pom.get.calculatorHeader(page)
-        await expect(calculator).toContainText('Calculator')
-    })
+    for(let i in math){
+        test('Math - ' + description[i] +' shows calculator', async ({page})=>{
+            await pom.get.searchField(page).fill(math[i])
+            await pom.get.searchButton(page).click()
+            const calculator = pom.get.calculatorHeader(page)
+            await expect(calculator).toContainText('Calculator')
+        })
+    }
   })
 
   test('translate phrase should bring up translator', async ({page}) => {
